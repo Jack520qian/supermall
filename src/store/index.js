@@ -7,9 +7,16 @@ import getters from "./getters"
 // 1.安装插件
 Vue.use(Vuex);
 
+if (!window.localStorage) {
+  console.log('浏览器版本太低，不支持localStorage')
+} else {
+  // 获取缓存的购物车数据
+  var cartList = JSON.parse(localStorage.getItem('cartList'));
+}
+
 // 2.创建store对象
 const state = {
-  cartList:[],
+  cartList:cartList || [],
 }
 const store = new Vuex.Store({
   state,

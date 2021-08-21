@@ -11,7 +11,7 @@
 import Scroll from "../../../components/common/scroll/Scroll.vue"
 import CartListItem from "./CartListItem.vue"
 
-import {mapGetters} from "vuex"
+// import {mapGetters} from "vuex"
 
 export default {
   name:"CartList",
@@ -20,7 +20,12 @@ export default {
     CartListItem
   },
   computed:{
-    ...mapGetters(['cartList']),
+    // ...mapGetters(['cartList']),
+
+    //获取购物车仓库信息
+    cartList() {
+      return this.$store.state.cartList;
+    }
   },
   activated(){
     this.$refs.scroll.scroll.refresh();

@@ -16,4 +16,10 @@ export default {
   updateData(state) {
     window.localStorage.setItem('cartList', JSON.stringify(state.cartList))
   },
+  //清空购物车数据并更新缓存
+  clearCart(state) {
+    state.cartList = []
+    //更新缓存
+    window.localStorage.setItem('cartList', JSON.stringify(state.cartList))
+  }
 }

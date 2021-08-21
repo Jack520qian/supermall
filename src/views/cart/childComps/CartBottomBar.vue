@@ -12,6 +12,8 @@
     <div class="calculate">
       去结算({{checkLength}})
     </div>
+
+    <div class="clear" @click="clearCart" v-if="$store.state.cartList.length">清空</div>
   </div>
 
   
@@ -60,7 +62,11 @@ export default {
       }else{  //部分或全部不选中
         this.$store.state.cartList.forEach(item => item.checked = true);
       }
-    }
+    },
+    //清空store仓库的购物车数据
+    clearCart() {
+      this.$store.commit("clearCart")
+    },
   }
 }
 </script>
@@ -100,5 +106,21 @@ export default {
     background-color: red;
     color: #fff;
     text-align: center;
+  }
+
+  .clear {
+    width: 41px;
+    height: 41px;
+    line-height: 41px;
+    background-color: var(--color-tint);
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 4px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 15px;
+    z-index: 99;
   }
 </style>

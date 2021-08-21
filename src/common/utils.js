@@ -10,7 +10,7 @@
     //重新开启一个定时器
     timer = setTimeout(() => {
       //console.log("执行一次");
-      // func.apply(this, args);
+      func.apply(this, args);
     }, delay);
   };
 }

@@ -34,6 +34,9 @@ export default {
   methods:{
     checkClick(){
       this.itemInfo.checked = !this.itemInfo.checked;
+
+      //更新缓存
+      this.$store.commit('updateData')
     }
   }
 }
